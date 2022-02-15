@@ -38,11 +38,10 @@ const CartCounter = () => {
                 }
             }
         }))
-    }, [count]); // TODO: why useCallback? ,how we can enchant this code without useCallback?
+    }, [count]); 
 
     const decrement = useCallback((id) => {
-        console.log("🚀 ~ file: CartCounter.jsx ~ line 45 ~ decrement ~ count.items[id].count", count.items[id].count)
-        setCount(prev => ({
+            setCount(prev => ({
             ...prev,
             total: count.items[id].count === 1 ? prev.total - 1 : prev.total,
             items: {
@@ -53,18 +52,12 @@ const CartCounter = () => {
                 }
             }
         }))
-    }, [count]); // TODO: why useCallback? ,how we can enchant this code without useCallback?
+    }, [count]); 
 
     // effects
     useEffect(() => {
-        console.log("🚀 ~ file: CartCounter.jsx ~ line 58 ~ useEffect ~ count", count)
-    }, [count]);
-
-    useEffect(() => {
-       
-    }, []);
-    
-    return (
+     }, [count]);
+     return (
         <div className='container'>
             <h1 className='text'> Cart Counter {count.total} </h1>
             {counters.map(counter => {
